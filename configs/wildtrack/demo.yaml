@@ -1,0 +1,5 @@
+# Render the seven-panel + map demo video (and a README-sized GIF) over all 400 frames.
+_base_: reid.yaml
+name: wildtrack-demo
+dataset: {split: all}
+output: {dir: runs/wildtrack/demo, save_video: true, video_fps: 4, panel_width: 480}

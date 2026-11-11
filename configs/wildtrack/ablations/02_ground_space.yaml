@@ -1,0 +1,4 @@
+# Reference row: ground-plane motion with propagated uncertainty, two-stage association, fusion.
+_base_: ../base.yaml
+name: A2-ground-space-motion
+output: {dir: runs/wildtrack/ablations/02_ground_space}

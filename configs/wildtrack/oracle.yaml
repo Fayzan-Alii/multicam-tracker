@@ -1,0 +1,6 @@
+# Upper bound: ground-truth boxes (with 2 px noise, 5% dropped) instead of YOLO. The gap to base.yaml
+# is what a better detector could buy; the gap to 100% is association and geometry error.
+_base_: base.yaml
+name: wildtrack-oracle-detector
+detector: {kind: oracle, oracle_noise_px: 2.0, oracle_miss_rate: 0.05, cache_dir: ""}
+output: {dir: runs/wildtrack/oracle}

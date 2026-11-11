@@ -1,0 +1,16 @@
+# Bag of Tricks baseline (Luo et al. 2019): ResNet-50, last stride 1, BNNeck, label smoothing,
+# batch-hard triplet, random erasing, warmup. Paper: ~94% Rank-1 / ~86% mAP on Market-1501.
+# Fits 6 GB with AMP at batch 64 (P=16 x K=4); if it does not, use p: 8 (batch 32).
+data_root: data/Market-1501-v15.09.15
+backbone: resnet50
+input_size: [256, 128]
+p: 16
+k: 4
+epochs: 120
+lr: 3.5e-4
+warmup_epochs: 10
+milestones: [40, 70]
+amp: true
+num_workers: 4
+eval_every: 10
+output_dir: runs/reid/market_r50

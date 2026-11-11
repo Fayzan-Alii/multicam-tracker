@@ -1,0 +1,6 @@
+# Adds appearance to association (IoU cost blended with re-ID cosine distance).
+_base_: yolo_coco.yaml
+name: mot17-yolo11s-coco-reid
+reid: {enabled: true, kind: torch, checkpoint: runs/reid/market_r50/best.pt}
+tracker: {appearance_weight: 0.3}
+output: {dir: runs/mot17/yolo_coco_reid}

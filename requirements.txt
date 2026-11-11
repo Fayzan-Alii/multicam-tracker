@@ -1,0 +1,18 @@
+# External libraries used by the project (install with make setup).
+numpy>=1.24
+scipy>=1.10
+opencv-python>=4.8
+pyyaml>=6.0
+tqdm>=4.65
+pillow>=10.0
+torch>=2.1
+torchvision>=0.16
+ultralytics>=8.3
+onnx>=1.15
+onnxruntime>=1.17
+onnxscript>=0.1
+pytest>=8
+trackeval @ git+https://github.com/JonathonLuiten/TrackEval.git@12c8791b303e0a0b50f753af204249e622d0281a
+
+# Install our local code so imports and the command work.
+-e .

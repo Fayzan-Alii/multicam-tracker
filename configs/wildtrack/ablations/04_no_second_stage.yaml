@@ -1,0 +1,5 @@
+# Decision 3 counterfactual: drop ByteTrack's low-score association stage.
+_base_: ../base.yaml
+name: A4-no-second-stage
+tracker: {second_stage: false}
+output: {dir: runs/wildtrack/ablations/04_no_second_stage}

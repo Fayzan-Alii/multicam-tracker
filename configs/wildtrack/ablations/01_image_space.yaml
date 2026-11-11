@@ -1,0 +1,5 @@
+# Decision 1 counterfactual: track boxes in image space (ByteTrack's Kalman model) instead of metres.
+_base_: ../base.yaml
+name: A1-image-space-motion
+tracker: {motion: {space: image}}
+output: {dir: runs/wildtrack/ablations/01_image_space}

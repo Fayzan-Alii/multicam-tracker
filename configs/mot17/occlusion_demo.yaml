@@ -1,0 +1,11 @@
+# Inspect the corrected low-confidence rescue stage on the same validation clip.
+_base_: yolo_finetuned_val.yaml
+name: mot17-occlusion-demo
+dataset:
+  sequences: [MOT17-02-FRCNN]
+detector:
+  weights: runs/detect/runs/detector/mot17/weights/best.pt
+output:
+  dir: runs/mot17/occlusion_demo
+  save_video: true
+  max_video_frames: 300

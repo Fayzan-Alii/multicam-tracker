@@ -1,0 +1,26 @@
+# Shared defaults. Every experiment inherits these via `_base_` and overrides what it needs.
+tracker:
+  high_thresh: 0.5          # detections at or above this take part in the first association
+  low_thresh: 0.1           # ByteTrack's second stage uses detections in [low, high)
+  new_track_thresh: 0.6     # only confident leftovers start tracks
+  match_thresh: 0.8
+  second_match_thresh: 0.5
+  unconfirmed_match_thresh: 0.7
+  n_init: 2
+  gate_chi2: 9.21           # 99% chi-square, 2 dof (ground-plane motion only)
+  appearance_gate: 0.35
+  embedding_ema: 0.9
+fusion:
+  link_gate_chi2: 13.82     # 99.9%: keep an established camera-track -> identity link
+  gate_chi2: 9.21
+  match_thresh: 0.9
+  cluster_thresh: 0.8
+  max_lost_s: 2.0
+  appearance_weight: 0.3    # ignored when re-ID is disabled
+  appearance_gate: 0.4
+  merge_chi2: 2.0
+  merge_frames: 2
+eval:
+  iou_threshold: 0.5
+  ground_track_radius_m: 1.0
+  ground_det_radius_m: 0.5

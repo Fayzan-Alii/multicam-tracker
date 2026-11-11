@@ -1,0 +1,5 @@
+# Full pipeline with a COCO-pretrained YOLO. It never saw MOT17, so every train frame is fair game.
+_base_: public_frcnn.yaml
+name: mot17-yolo11s-coco
+detector: {kind: yolo, weights: yolo11s.pt, conf: 0.1, imgsz: 1280, cache_dir: cache/mot17/yolo11s_coco}
+output: {dir: runs/mot17/yolo_coco}

@@ -1,0 +1,4 @@
+# Adds appearance (needs a trained re-ID checkpoint).
+_base_: ../reid.yaml
+name: A6-with-reid
+output: {dir: runs/wildtrack/ablations/06_reid}

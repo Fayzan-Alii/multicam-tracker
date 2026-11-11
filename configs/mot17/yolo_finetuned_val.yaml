@@ -1,0 +1,7 @@
+# YOLO fine-tuned on the first half of every MOT17 train sequence (multicam-tracker prepare-yolo + train-detector),
+# evaluated only on the second halves: the ByteTrack "val half" protocol.
+_base_: yolo_coco.yaml
+name: mot17-yolo11s-finetuned-valhalf
+dataset: {split: second_half}
+detector: {weights: runs/detector/mot17/weights/best.pt, cache_dir: cache/mot17/yolo11s_finetuned}
+output: {dir: runs/mot17/yolo_finetuned_val}

@@ -1,0 +1,6 @@
+# Base + appearance from a trained re-ID model, used by both the local trackers and fusion.
+_base_: base.yaml
+name: wildtrack-reid
+reid: {enabled: true, kind: torch, checkpoint: runs/reid/market_r50/best.pt}
+tracker: {appearance_weight: 0.3}
+output: {dir: runs/wildtrack/reid}

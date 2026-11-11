@@ -1,0 +1,14 @@
+# Smoke test and demo: no downloads, no GPU. Oracle detector and re-ID stand in for the models.
+#   multicam-tracker run --config configs/synthetic.yaml
+_base_: _defaults.yaml
+name: synthetic
+dataset:
+  kind: synthetic
+  synthetic: {num_cameras: 4, num_people: 10, num_frames: 60, fps: 2.0, seed: 0}
+detector: {kind: oracle, oracle_noise_px: 2.0, oracle_miss_rate: 0.05}
+reid: {enabled: true, kind: oracle, oracle_noise: 0.25}
+tracker:
+  motion: {space: ground}
+  appearance_weight: 0.3
+  max_lost_s: 1.5
+output: {dir: runs/synthetic, save_video: true, video_fps: 4}

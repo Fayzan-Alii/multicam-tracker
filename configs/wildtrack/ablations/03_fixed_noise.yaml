@@ -1,0 +1,5 @@
+# Decision 2 counterfactual: a fixed 0.3 m isotropic ground error instead of propagating pixel noise.
+_base_: ../base.yaml
+name: A3-fixed-isotropic-noise
+ground: {propagate_uncertainty: false, fixed_sigma_m: 0.3}
+output: {dir: runs/wildtrack/ablations/03_fixed_noise}

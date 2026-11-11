@@ -1,0 +1,7 @@
+# Faster, lighter baseline (roughly 3x quicker per epoch than ResNet-50; expect lower accuracy).
+_base_: market1501_r50.yaml
+backbone: resnet18
+epochs: 60
+milestones: [20, 40]
+warmup_epochs: 5
+output_dir: runs/reid/market_r18

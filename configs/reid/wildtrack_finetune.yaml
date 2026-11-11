@@ -1,0 +1,12 @@
+# Fine-tune the Market-1501 model on WILDTRACK crops (multicam-tracker build-reid-crops) to close the domain
+# gap. Training and checkpoint selection use separate frames within the dataset train split.
+# Evaluate tracking on the untouched split: test afterwards.
+_base_: market1501_r50.yaml
+data_root: data/wildtrack_reid
+init_from: runs/reid/market_r50/best.pt
+epochs: 30
+lr: 1.0e-4
+warmup_epochs: 2
+milestones: [20]
+eval_every: 5
+output_dir: runs/reid/wildtrack_r50

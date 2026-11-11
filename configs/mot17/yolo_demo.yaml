@@ -1,0 +1,10 @@
+# Fair one-clip comparison with demo.yaml: same video and preview length,
+# but YOLO11s generates the person boxes instead of reading det/det.txt.
+_base_: yolo_coco.yaml
+name: mot17-yolo-demo
+dataset:
+  sequences: [MOT17-02-FRCNN]
+output:
+  dir: runs/mot17/yolo_demo
+  save_video: true
+  max_video_frames: 100

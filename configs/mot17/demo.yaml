@@ -1,0 +1,9 @@
+# First real-data experiment: one clip, with a preview of its first 100 frames.
+_base_: public_frcnn.yaml
+name: mot17-demo
+dataset:
+  sequences: [MOT17-02-FRCNN]
+output:
+  dir: runs/mot17/demo
+  save_video: true
+  max_video_frames: 100

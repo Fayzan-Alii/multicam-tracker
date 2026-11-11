@@ -1,0 +1,15 @@
+# WILDTRACK: 7 calibrated cameras, 2 fps annotations. Ground-plane local tracking + fusion.
+# split: test is the last 10% of frames (the MVDet protocol); required whenever anything
+# (detector or re-ID) was fine-tuned on WILDTRACK. With off-the-shelf models, split: all
+# gives 10x more evaluation frames.
+_base_: ../_defaults.yaml
+name: wildtrack-base
+dataset: {kind: wildtrack, root: data/Wildtrack, split: test}
+detector: {kind: yolo, weights: yolo11s.pt, conf: 0.1, imgsz: 1280, cache_dir: cache/wildtrack/yolo11s_coco}
+ground:
+  foot_depth_offset_m: 0.0   # set to the value `multicam-tracker verify-calibration` suggests
+tracker:
+  motion: {space: ground, accel_noise: 1.5, init_speed_std: 1.5}
+  max_lost_s: 1.5           # 3 frames at 2 fps
+fusion: {enabled: true}
+output: {dir: runs/wildtrack/base}

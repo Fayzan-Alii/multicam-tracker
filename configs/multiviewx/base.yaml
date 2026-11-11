@@ -1,0 +1,11 @@
+# MultiviewX: synthetic 6-camera counterpart of WILDTRACK with the same file format.
+_base_: ../_defaults.yaml
+name: multiviewx-base
+dataset: {kind: multiviewx, root: data/MultiviewX, split: test}
+detector: {kind: yolo, weights: yolo11s.pt, conf: 0.1, imgsz: 1280, cache_dir: cache/multiviewx/yolo11s_coco}
+ground:
+  foot_depth_offset_m: 0.0   # set to the value `multicam-tracker verify-calibration` suggests
+tracker:
+  motion: {space: ground}
+  max_lost_s: 1.5
+output: {dir: runs/multiviewx/base}

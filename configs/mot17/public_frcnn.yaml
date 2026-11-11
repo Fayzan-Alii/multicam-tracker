@@ -1,0 +1,13 @@
+# Tracker-only benchmark: MOT17 train with the dataset's public FRCNN detections, so the numbers
+# measure association quality alone. MOT17 has no calibration, so tracking is image-space.
+_base_: ../_defaults.yaml
+name: mot17-public-frcnn
+dataset: {kind: mot17, root: data/MOT17, mot17_subset: train, mot17_detector: FRCNN, split: all}
+detector: {kind: public, conf: 0.1}
+tracker:
+  motion: {space: image}
+  high_thresh: 0.6          # ByteTrack's MOT17 settings
+  new_track_thresh: 0.7
+  fuse_score: true
+  max_lost_s: 1.0           # 30 frames at 30 fps
+output: {dir: runs/mot17/public_frcnn}

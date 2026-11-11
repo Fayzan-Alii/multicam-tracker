@@ -1,0 +1,5 @@
+# No cross-camera fusion: seven independent trackers (only per-camera metrics are reported).
+_base_: ../base.yaml
+name: A5-no-fusion
+fusion: {enabled: false}
+output: {dir: runs/wildtrack/ablations/05_no_fusion}
